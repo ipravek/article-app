@@ -9,8 +9,8 @@ function App() {
       {/* Navbar */}
       <Navbar />
 
+      {/* Articles */}
       <Container sx={{ my: 3 }}>
-        {/* Articles */}
         <Article />
       </Container>
     </div>

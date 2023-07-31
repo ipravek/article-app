@@ -14,6 +14,10 @@ import {
 import Spinner from "./Spinner";
 import { Box } from "@mui/system";
 
+const renderHtml = ({ children }) => {
+  return <div dangerouslySetInnerHTML={{ __html: children }} />;
+};
+
 const Article = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
@@ -66,10 +70,14 @@ const Article = () => {
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                      {e.parselyMeta["parsely-title"]} {console.log(e)}
+                      <div
+                        dangerouslySetInnerHTML={{ __html: e.title.rendered }}
+                      ></div>
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {e.excerpt.rendered}
+                      <div
+                        dangerouslySetInnerHTML={{ __html: e.excerpt.rendered }}
+                      ></div>
                     </Typography>
                   </CardContent>
                   <CardActions>
